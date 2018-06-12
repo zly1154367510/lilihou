@@ -33,8 +33,7 @@ public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         super.addInterceptors(registry);
-
-        registry.addInterceptor(getOnInterceptor()).addPathPatterns("/*/**");
+      //  registry.addInterceptor(getOnInterceptor()).addPathPatterns("/*/**");
 
     }
     @Bean

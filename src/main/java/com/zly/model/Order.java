@@ -15,6 +15,16 @@ public class Order {
 
     private String name;
 
+    private String isDeliver;
+
+    public String getIsDeliver() {
+        return isDeliver;
+    }
+
+    public void setIsDeliver(String isDeliver) {
+        this.isDeliver = isDeliver;
+    }
+
     public Order(Long id, String payment, Date createTime, Long uId, String address, String name) {
         this.id = id;
         this.payment = payment;

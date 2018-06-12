@@ -13,5 +13,6 @@ public interface OrderService {
     List<Order> getOrderListByUsername(String username,int page);
     Long getOrderNum();
     Long getOrderNumByUsername(String username);
+    Integer updById(Integer id);
 
 }

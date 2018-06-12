@@ -65,7 +65,17 @@
 
                                     <td>${item.address}</td>
                                     <td>${item.name}</td>
-                                    <td><a>修改</a><a>删除</a></td>
+                                    <td>
+                                        <c:choose>
+                                            <c:when test="${item.isDeliver=='0'}">
+                                                <a href="" onclick="javascript:return fahuo(${item.id});">点击确认发货发货</a>
+                                            </c:when>
+                                            <c:otherwise>
+                                                已确认发货${item.isDeliver}
+                                            </c:otherwise>
+                                        </c:choose>
+
+                                    </td>
                                 </tr>
                             </c:forEach>
 
@@ -112,6 +122,38 @@
 
 </div>
 <!-- End .content-wrapper -->
-
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+</script>
+<script type="text/javascript">
+    function fahuo(id) {
+        var msg = "您真的确定已经发货了吗？\n\n请确认！";
+        var oId = id;
+        console.log(oId)
+        if (confirm(msg)==true){
+            $.ajax({
+                url:"http://localhost:8089/isDeliver",
+                data:{
+                    "oId":oId,
+                },
+                type:"POST",
+                dataType:"json",
+                success:function(res){
+                    if(res.status == 200){
+                        console.log(res)
+                        alert("发货成功")
+                    }else{
+                        alert("错误，请重试")
+                    }
+                },
+                error:function(){
+                    alert("aaa")
+                }
+            })
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>
 </body>
 </html>

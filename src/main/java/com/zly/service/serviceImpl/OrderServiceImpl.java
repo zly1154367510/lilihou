@@ -45,4 +45,9 @@ public class OrderServiceImpl implements OrderService {
         Long uId = userMapper.selectByUsername(username).get(0).getId();
         return orderMapper.selectAllNumByUId(uId);
     }
+
+    @Override
+    public Integer updById(Integer id) {
+        return orderMapper.updById(id);
+    }
 }

@@ -1,5 +1,7 @@
 package com.zly.controller;
 
+import com.google.gson.stream.JsonReader;
+import com.zly.Utils.JsonResult;
 import com.zly.dao.OrderMapper;
 import com.zly.model.Admin;
 import com.zly.model.Item;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -36,6 +39,11 @@ public class AdminController {
     @RequestMapping("admin/login")
     public String login(){
         return "admin/login";
+    }
+
+    @RequestMapping("admin/test")
+    public String test(){
+        return "test";
     }
 
     @RequestMapping("admin/loginDo")
@@ -100,6 +108,17 @@ public class AdminController {
         model.addAttribute("nextPage", page + 1);
         model.addAttribute("previousPage", page - 1);
         return "order/order";
+    }
+
+    @RequestMapping("/isDeliver")
+    @ResponseBody
+    public JsonResult isDeliver(@RequestParam("oId")int oId){
+       // System.out.println(oId);
+        if(orderService.updById(oId) !=0 ) {
+            return JsonResult.ok("hah");
+        }else{
+            return JsonResult.errorMsg("出现错误");
+        }
     }
 
 }
