@@ -71,7 +71,7 @@
                                                 <a href="" onclick="javascript:return fahuo(${item.id});">点击确认发货发货</a>
                                             </c:when>
                                             <c:otherwise>
-                                                已确认发货${item.isDeliver}
+                                                已确认发货
                                             </c:otherwise>
                                         </c:choose>
 

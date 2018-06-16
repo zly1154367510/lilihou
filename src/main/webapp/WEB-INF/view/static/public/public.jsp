@@ -79,40 +79,47 @@
             <li>
                 登录管理 <i class="im-paragraph-justify"></i>
             </li>
-            <li><a href="http://localhost:8089/admin/login">重新登录 <i class="glyphicon glyphicon-th-list"></i></a>
+            <li>
+                <a href="http://localhost:8089/admin/login">重新登录 <li class="glyphicon glyphicon-th-list"></li></a>
             </li>
-            <li><a href="http://localhost:8089/admin/logOut">注销<i class="glyphicon glyphicon-plus"></i></a>
+            <li><a href="http://localhost:8089/admin/logOut">注销<li class="glyphicon glyphicon-plus"></li></a>
             </li>
             <li>
+                秒杀管理 <i class="im-paragraph-justify"></i>
+            </li>
+            <li><a href="http://localhost:8089/getSeckiil?page=1">秒杀列表 <li class="glyphicon glyphicon-th-list"></li></a>
+            </li>
+            <li><a href="http://localhost:8089/addSeckiil">添加秒杀 <li class="glyphicon glyphicon-plus"></li></a>
+            </li>
             <li>
                 产品管理 <i class="im-paragraph-justify"></i>
             </li>
-            <li><a href="http://localhost:8089/item?page=1">产品列表 <i class="glyphicon glyphicon-th-list"></i></a>
+            <li><a href="http://localhost:8089/item?page=1">产品列表 <li class="glyphicon glyphicon-th-list"></li></a>
             </li>
-            <li><a href="http://localhost:8089/additem">添加商品 <i class="glyphicon glyphicon-plus"></i></a>
+            <li><a href="http://localhost:8089/additem">添加商品 <li class="glyphicon glyphicon-plus"></li></a>
             </li>
             <li>
                  广告管理 <i class="im-paragraph-justify"></i>
             </li>
-            <li><a href="http://localhost:8089/adv">广告列表 <i class="glyphicon glyphicon-th-list"></i></a>
-            <li><a href="http://localhost:8089/addAdv">添加广告 <i class="glyphicon glyphicon-plus"></i></a>
+            <li><a href="http://localhost:8089/adv">广告列表 <li class="glyphicon glyphicon-th-list"></li></a>
+            <li><a href="http://localhost:8089/addAdv">添加广告 <li class="glyphicon glyphicon-plus"></li></a>
             </li>
 
             <li>
                 参数设置 <i class="im-paragraph-justify"></i>
             </li>
-            <li><a href="http://localhost:8089/config">参数列表 <i class="glyphicon glyphicon-th-list"></i></a>
+            <li><a href="http://localhost:8089/config">参数列表 <li class="glyphicon glyphicon-th-list"></li></a>
 
             <li>
                 用户管理 <i class="im-paragraph-justify"></i>
             </li>
-            <li><a href="http://localhost:8089/userList">用户列表 <i class="glyphicon glyphicon-th-list"></i></a>
-            <li><a href="http://localhost:8089/config">封禁列表 <i class="glyphicon glyphicon-th-list"></i></a>
+            <li><a href="http://localhost:8089/userList">用户列表 <li class="glyphicon glyphicon-th-list"></li></a>
+            <li><a href="http://localhost:8089/config">封禁列表 <li class="glyphicon glyphicon-th-list"></li></a>
 
             <li>
                 订单管理 <i class="im-paragraph-justify"></i>
             </li>
-            <li><a href="http://localhost:8089/getOrder">订单列表 <i class="glyphicon glyphicon-th-list"></i></a>
+            <li><a href="http://localhost:8089/getOrder">订单列表 <li class="glyphicon glyphicon-th-list"></li></a>
 
 
 

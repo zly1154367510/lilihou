@@ -1,5 +1,6 @@
 package com.zly.controller;
 
+import com.zly.Utils.JsonResult;
 import com.zly.model.*;
 import com.zly.service.ItemCatService;
 import com.zly.service.ItemParamService;
@@ -49,6 +50,17 @@ public class ItemController {
         model.addAttribute("nextPage", page + 1);
         model.addAttribute("previousPage", page - 1);
         return "mobilePhone/index";
+
+    }
+
+    @RequestMapping("/api/item")
+    @ResponseBody
+    //分页查询商品列表
+    public JsonResult getItemJson(@RequestParam(value = "page", required = false, defaultValue = "1") int page) {
+        //System.out.println(page);
+        List<Item> i = itemService.getItem(page, 10);
+        long pages = itemService.getItemNum() / 10;
+        return JsonResult.ok(i);
 
     }
 

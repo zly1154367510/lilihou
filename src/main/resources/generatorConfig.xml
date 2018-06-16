@@ -67,11 +67,13 @@
         </javaClientGenerator>
 
 
-        <table tableName="tb_order" domainObjectName="Order"
+        <table tableName="tb_seckiil" domainObjectName="Seckiil"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
         </table>
+
+
 
 
 

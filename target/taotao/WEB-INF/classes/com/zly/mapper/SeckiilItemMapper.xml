@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zly.dao.SeckiilItemMapper" >
+  <resultMap id="BaseResultMap" type="com.zly.model.SeckiilItem" >
+    <constructor >
+      <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="s_id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="i_id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="new_price" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="num" jdbcType="BIGINT" javaType="java.lang.Long" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, s_id, i_id, new_price, num
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_seckiil_item
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from tb_seckiil_item
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.zly.model.SeckiilItem" >
+    insert into tb_seckiil_item (id, s_id, i_id, new_price, 
+      num)
+    values (#{id,jdbcType=BIGINT}, #{sId,jdbcType=BIGINT}, #{iId,jdbcType=BIGINT}, #{newPrice,jdbcType=VARCHAR}, 
+      #{num,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zly.model.SeckiilItem" >
+    insert into tb_seckiil_item
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="sId != null" >
+        s_id,
+      </if>
+      <if test="iId != null" >
+        i_id,
+      </if>
+      <if test="newPrice != null" >
+        new_price,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="sId != null" >
+        #{sId,jdbcType=BIGINT},
+      </if>
+      <if test="iId != null" >
+        #{iId,jdbcType=BIGINT},
+      </if>
+      <if test="newPrice != null" >
+        #{newPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zly.model.SeckiilItem" >
+    update tb_seckiil_item
+    <set >
+      <if test="sId != null" >
+        s_id = #{sId,jdbcType=BIGINT},
+      </if>
+      <if test="iId != null" >
+        i_id = #{iId,jdbcType=BIGINT},
+      </if>
+      <if test="newPrice != null" >
+        new_price = #{newPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zly.model.SeckiilItem" >
+    update tb_seckiil_item
+    set s_id = #{sId,jdbcType=BIGINT},
+      i_id = #{iId,jdbcType=BIGINT},
+      new_price = #{newPrice,jdbcType=VARCHAR},
+      num = #{num,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
