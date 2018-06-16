@@ -1,15 +1,19 @@
 package com.zly.service.serviceImpl;
 
+import com.github.pagehelper.PageHelper;
 import com.zly.Utils.DateUtils;
 import com.zly.Utils.GetInsertId;
 import com.zly.dao.SeckiilItemMapper;
 import com.zly.dao.SeckiilMapper;
+import com.zly.model.Seckiil;
+import com.zly.model.SeckiilItem;
 import com.zly.service.SeckillService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by zly11 on 2018/6/15.
@@ -35,5 +39,16 @@ public class SeckillServiceImpl implements SeckillService {
             res = seckiilItemMapper.insert1(getInsertId.getId(),iId[i],nums[i],prices[i]);
         }
         return res;
+    }
+
+    @Override
+    public List<Seckiil> selectAll(int page) {
+        PageHelper.startPage(page,10);
+        return seckillMapper.selectAll();
+    }
+
+    @Override
+    public List<SeckiilItem> selectBySId(int sId) {
+        return seckiilItemMapper.selectBysId(sId);
     }
 }

@@ -87,7 +87,7 @@
             <li>
                 秒杀管理 <i class="im-paragraph-justify"></i>
             </li>
-            <li><a href="http://localhost:8089/getSeckiil?page=1">秒杀列表 <li class="glyphicon glyphicon-th-list"></li></a>
+            <li><a href="http://localhost:8089/seckiil?page=1">秒杀列表 <li class="glyphicon glyphicon-th-list"></li></a>
             </li>
             <li><a href="http://localhost:8089/addSeckiil">添加秒杀 <li class="glyphicon glyphicon-plus"></li></a>
             </li>

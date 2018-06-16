@@ -1,5 +1,7 @@
 package com.zly.model;
 
+import java.util.List;
+
 public class SeckiilItem {
     private Long id;
 
@@ -10,6 +12,16 @@ public class SeckiilItem {
     private String newPrice;
 
     private Long num;
+
+    private Item item;
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
 
     public SeckiilItem(Long id, Long sId, Long iId, String newPrice, Long num) {
         this.id = id;
