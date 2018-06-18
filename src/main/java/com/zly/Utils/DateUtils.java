@@ -9,6 +9,12 @@ import java.util.Date;
  */
 public class DateUtils {
 
+    /**
+     * 格式化表单实现
+     * @param format
+     * @param date
+     * @return
+     */
     public static Date FormatDate(String format,String date){
         date = date.replace("T"," ");
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format);
@@ -19,6 +25,12 @@ public class DateUtils {
             return null;
 
         }
+    }
+
+    public static String formtSystemDate(String format,String date){
+        SimpleDateFormat formatter = new SimpleDateFormat(format);
+        String dateString = formatter.format(date);
+        return dateString;
     }
 
 }

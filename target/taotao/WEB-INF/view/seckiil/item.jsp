@@ -156,8 +156,9 @@
             funShowDivCenter1()
         })
         $(document).on("click",".printItem",function(){
+            $(".item").children("tr").remove()
             var id
-            var html=""
+            var html= " "
             var that = $(this)
             id = that.attr("id")
        //     console.log(id)
@@ -171,7 +172,6 @@
                 success:function (res) {
                   //  console.log(res)
                     if (res.status==200){
-                        html = ""
 
                         for (var i = 0;i < res.data.length;i++){
                             html += "<tr>"
@@ -182,6 +182,7 @@
                         }
 
                         $(".item").append(html)
+                        html = ""
                         funShowDivCenter()
                         funShowDivCenter1()
                     }
