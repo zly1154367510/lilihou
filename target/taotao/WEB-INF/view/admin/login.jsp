@@ -64,7 +64,10 @@
                         </div>
                     </div>
                     <div class="form-bottom">
-                        <form role="form" action="/admin/loginDo" method="post" class="login-form">
+                        <p>
+                            <div id="errorMsg"></div>
+                        </p>
+                        <form role="form" action="/admin/loginDo" method="post" class="login-form" id="loginForm" onsubmit="return checkForm()">
                             <div class="form-group">
                                 <label class="sr-only" for="form-username">账号</label>
                                 <input type="text" name="username" placeholder="Username..." class="form-username form-control" id="form-username">
@@ -73,6 +76,14 @@
                                 <label class="sr-only" for="form-password">密码</label>
                                 <input type="password" name="password" placeholder="Password..." class="form-password form-control" id="form-password">
                             </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="form-password">验证码</label>
+                                <input type="text" name="verCode" placeholder="验证码..." class="form-password form-control" id="form-verCode">
+                                <p>
+                                    <img id='kaptchaImage' src="http://localhost:8089/Kaptcha" alt="点击更换" >
+                                </p>
+                            </div>
+
                             <input type="submit" class="btn">登录</input>
                         </form>
                     </div>
@@ -95,6 +106,25 @@
 <!--[if lt IE 10]>
 <script src="http://localhost:8089/assets/js/placeholder.js"></script>
 <![endif]-->
-
+<script>
+    function checkForm(){
+        var username = $("#form-username").val()
+        var password = $("#form-password").val()
+        var verCode = $("#form-verCode").val()
+//        console.log(verCode)
+//        console.log(password)
+//        console.log(username)
+        if (username == "" || password == "" || verCode == "") {
+            alert('请输入完整登录信息')
+//            console.log("进来了1")
+            return false
+        }
+    //    console.log("进来了2")
+        return true
+    }
+    $(function(){
+        $('#kaptchaImage').click(function () { $(this).attr('src', 'http://localhost:8089/Kaptcha?' + Math.floor(Math.random()*100) ); })
+    });
+</script>
 </body>
 </html>

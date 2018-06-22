@@ -1,5 +1,6 @@
 package com.zly.controller;
 
+import com.google.code.kaptcha.Constants;
 import com.google.gson.stream.JsonReader;
 import com.zly.Utils.JsonResult;
 import com.zly.dao.OrderMapper;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import sun.misc.Request;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -47,8 +49,14 @@ public class AdminController {
     }
 
     @RequestMapping("admin/loginDo")
-    public ModelAndView loginDo(Model model, @RequestParam("username")String username, @RequestParam("password")String password, HttpServletRequest request){
-
+    public ModelAndView loginDo(Model model, @RequestParam("username")String username, @RequestParam("password")String password, HttpServletRequest request,@RequestParam("verCode")String verCode){
+        String servletVerCode =  (String)request.getSession().getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
+        System.out.println("servletVerCode:"+servletVerCode);
+        System.out.println("verCode:"+verCode);
+        if (verCode == null && servletVerCode.equals(verCode)){
+            model.addAttribute("message","验证码错误");
+            return new ModelAndView("message/success");
+        }
         Admin admin = adminService.login(username,password);
         if (admin != null){
            // System.out.println("我是登录session"+request.getSession().getId());
